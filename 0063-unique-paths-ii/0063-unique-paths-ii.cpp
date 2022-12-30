@@ -1,7 +1,6 @@
 class Solution {
 public:
-    
-    vector<vector<int>>dp;
+   vector<vector<int>>dp;
     
     int solve(int m,int n,vector<vector<int>>& obstacleGrid)
     {
@@ -22,7 +21,8 @@ public:
             
             return 1;
             
-        }
+        } 
+    
         
         if(n==0)
         {

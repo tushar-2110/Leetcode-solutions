@@ -1,8 +1,7 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-
-       
+        
          set<int> s1;
         set<int> s2;
 
@@ -25,7 +24,6 @@ public:
         }
         
     }
-        
         
     }
 };

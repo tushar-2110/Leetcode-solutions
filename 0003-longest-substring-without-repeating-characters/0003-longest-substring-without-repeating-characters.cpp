@@ -1,9 +1,9 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
- 
-   
-        vector<int> v(256,-1);
+        
+        
+          vector<int> v(256,-1);
         int n=s.length();
 
         int start=-1;
@@ -18,5 +18,6 @@ public:
         }
         
         return maxLen;
+        
     }
 };

@@ -8,33 +8,26 @@
  *  ListNode(int x, ListNode *next) : val(x), next(next) {}
  *};
  */
+void reverse(ListNode *&head, ListNode *curr, ListNode *prev)
+{
+    /// base case
+    if (curr == NULL)
+    {
+        head = prev;
+        return;
+    }
+    ListNode *forw = curr->next;
+    reverse(head, forw, curr);
+    curr->next = prev;
+};
 class Solution
 {
-    public:
-        ListNode* reverseList(ListNode *head) {
-            
-            ListNode *temp=head;
-            vector<int> v;
-            
-            while(temp)
-            {
-                v.push_back(temp->val);
-                temp=temp->next;
-            }
-            
-            reverse(v.begin(),v.end());
-            
-            temp=head;
-            int i=0;
-            while(temp)
-            {
-                temp->val=v[i];
-                i++;
-                temp=temp->next;
- 
-            }
-            
-            return head;
-            
-        }
+public:
+    ListNode *reverseList(ListNode *head)
+    {
+        ListNode *prev = NULL;
+        ListNode *curr = head;
+        reverse(head, curr, prev);
+        return head;
+    }
 };

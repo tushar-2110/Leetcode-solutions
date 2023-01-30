@@ -2,37 +2,28 @@ class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
         
-        vector<int> ans;
         
-        int n=nums.size();
-        
-        int i=0;
-        int x=0;
-        
-        while(ans.size()!=n)
-        {
-            x=nums[i++];
-            
-            int m=0;
-            
-            while(m!=n)
-            {
-               if(nums[(i+m)%n]>x)
-               {
-                   ans.push_back(nums[(i+m)%n]);
-                   break;
-               }else
-                   m++;
-            
+          vector<int> ans;
+        bool flag;
+        for(int i=0;i<nums.size();i++){
+            flag=false;
+            for(int j=i+1;j<2*nums.size()-1;j++){
+                if(nums[i] < nums[ j% nums.size()]){
+                    ans.push_back(nums[j%nums.size()]);
+                    flag=true;
+                    break;
+                    
+                }
+            }
+            if(!flag){
+                ans.push_back(-1);
             }
             
-            if(m==n)
-                ans.push_back(-1);
-            
         }
-        
-        
-        
         return ans;
+        
+        
+        
+        
     }
 };
